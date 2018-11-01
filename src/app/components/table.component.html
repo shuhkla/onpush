@@ -1,0 +1,45 @@
+<!-- <div style="overflow-y:scroll; height:500px; width:700px;"> -->
+<mat-card style="margin-bottom:10px">
+    <mat-card-title>Table Component</mat-card-title>
+    <input matInput placeholder="Type whatever you want">
+    <div>
+        <button mat-raised-button color="primary" (click)="addMoreRows()">Add 100 rows</button>
+        <div>Row Count: {{ dataSource.data.length }} </div>
+
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+            <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ getWeight(element) }} </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+            <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="heavy">
+            <mat-header-cell *matHeaderCellDef> Is This Heavy? </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ getHeavyLabel(element) }} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+
+</mat-card>
+

@@ -1,0 +1,23 @@
+<mat-card style="margin-bottom:10px">
+    <mat-card-title>Detail Component</mat-card-title>
+    <div>{{ progressIndicatorObservable | async }}</div>
+    <div>{{ getFormattedUser() }}</div>
+    <div>Method 2: Use async pipe to subscribe to an observable</div>
+    <button mat-raised-button color="primary" (click)="simulate()">Simulate HTTP call</button>
+    <button mat-raised-button color="secondary">This does nothing!</button>
+</mat-card>
+
+
+<!--
+    Use this method if you already have an observable to work with that you can nicely subscribe with an async pipe
+    (This example is a bad one, because we're forcing the progressIndicator to be an observable<string>)
+
+    If you look at the Angular source code, all async pipe does under the hood is just marking the component for next cycle's change detection
+        
+    private _updateLatestValue(async: any, value: Object): void {
+        if (async === this._obj) {
+            this._latestValue = value;
+            this._ref.markForCheck();
+        }
+    }
+-->

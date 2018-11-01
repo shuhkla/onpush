@@ -1,0 +1,14 @@
+<mat-card style="margin-bottom:10px">
+    <mat-card-title>Detail Component</mat-card-title>
+    <div>Method 1: Use @inputs and pass immutable objects to subcomponents</div>
+    <app-detail-1-sub [user]="user" [progressIndicator]="progressIndicator"></app-detail-1-sub>
+    <button mat-raised-button color="primary" (click)="simulate()">Simulate HTTP call</button>
+    <button mat-raised-button color="secondary">This does nothing!</button>
+</mat-card>
+
+<!--
+    Use this method if you should create a dedicated child component that we can leverage for code reuse
+
+    Note that all component inputs MUST be immutable. OnPush will not perform the change detection for any of the
+    child components if the input reference has not been changed.
+-->
