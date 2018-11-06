@@ -21,7 +21,7 @@ This is usually not an issue on modern browsers such as Chrome. For older browse
 
 In comparison to the default change detection strategy, using OnPush brings the following changes in change detection scheme:
 
-- Just like before, synchronous events will still invoke the change detection, but only on the component that triggered the event. Note that the change detection cycle can be propagated to children.
+- Synchronous events will still invoke a change detection cycle, but only on the component that triggered the event. Note that the change detection cycle can be propagated to children.
 - Change detection cycle is propagated to child components only if the bound input reference changes (immutability is the key here).
 - Asynchronous events *WILL NOT* invoke the change detection. 
 
