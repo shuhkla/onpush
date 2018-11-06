@@ -25,6 +25,15 @@ In comparison to the default change detection strategy, using OnPush brings the 
 - Change detection cycle is propagated to child components only if the bound input reference changes (immutability is the key here).
 - Asynchronous events *WILL NOT* invoke the change detection. 
 
+## Sample Application
+
+Sample application consists of two components:
+
+- Detail Component
+- Table Component
+
+Detail component has three examples (detail-1, detail-2, detail-3) that showcases how to properly handle asynchronous events with OnPush change detection.
+
 ## Further reading
 
 https://netbasal.com/a-comprehensive-guide-to-angular-onpush-change-detection-strategy-5bac493074a4

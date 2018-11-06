@@ -8,6 +8,7 @@ import { Component, ChangeDetectionStrategy, Renderer2 } from '@angular/core';
 export class AppComponent {
     public constructor(private renderer: Renderer2) {
         this.renderer.listen('window', 'scroll', () => {
+            // Simulate scroll interception
         });
     }
 }
